@@ -1,0 +1,47 @@
+{% extends 'employee/base.html' %}
+
+{% block content %}
+
+<center>
+<div class="row">
+    <div class="col-12">
+        <form action="{%url 'show'%}">
+            {{ form }}
+            <input type="submit" value="search">
+        </form>
+    </div>
+</div>
+</center>
+
+<div class="container mt-3">
+  <h2>Employees Information:</h2>
+  <table class="table table-dark table-striped">
+    <thead>
+      <tr>
+        <th>Name:</th>
+        <th>Family:</th>
+        <th>Email:</th>
+        <th>Contact Number:</th>
+        <th>Actions:</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for employee in employees %}
+          <tr>
+            <td>{{ employee.ename }}</td>
+            <td>{{ employee.efamily }}</td>
+            <td>{{ employee.eemail }}</td>
+            <td>{{ employee.econtact }}</td>
+            <td><a href="/edit/{{ employee.id }}"><strong>Edit</strong></a>--<a href="/delete/{{ employee.id }}"><strong>Delete</strong></a></td>
+          </tr>
+        {% endfor %}
+    </tbody>
+  </table>
+</div>
+<br>
+
+
+<center><a href="{% url 'add' %}" class="btn btn-primary"><strong>ADD NEW RECORD</strong></a></center>
+
+{% endblock %}
+

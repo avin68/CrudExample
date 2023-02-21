@@ -1,0 +1,55 @@
+{% extends 'employee/base.html' %}
+
+{% block content %}
+
+<form method="POST" class="post-form" action="/add/">
+    {% csrf_token %}
+    <div class="container">
+        <br>
+        <div class="form-group row">
+            <label class="col-sm-1 col-form-label"></label>
+            <div class="col-sm-4">
+                <h3>Enter Details:</h3>
+            </div>
+        </div>
+         <br>
+          <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Employee Name:</label>
+            <div class="col-sm-2">
+                {{form.ename}}
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Employee Family:</label>
+            <div class="col-sm-2">
+                {{form.efamily}}
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Employee Email:</label>
+            <div class="col-sm-2">
+                {{form.eemail}}
+            </div>
+           </div>
+
+          <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Employee Contact:</label>
+            <div class="col-sm-2">
+                {{form.econtact}}
+            </div>
+          </div>
+        <br>
+        <div class="form-group row">
+            <label class="col-sm-1 col-form-label"></label>
+            <div class="col-sm-4">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+
+
+    </div>
+</form>
+{% endblock %}
+
